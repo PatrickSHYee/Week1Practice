@@ -12,8 +12,11 @@ namespace Week1Practice
         {
             // DECLARING VARIABLES
             // 1. Declare a string variable called "myName" and set it equal to your name
+            string myName = "Patrick Yee";
             // 2. Declare a number varible called "myAge" and set it equal to your age
+            int myAge = 31;
             // 3. Declare a boolean value called "myBool" and set it equal to true or false;
+            bool myBool = true;
             // 4. Declare a new list of strings called "productsList" and set it equal to "basketball", "baseball glove", "tennis shoes", "hockey puck"
 
             // PRINTING VARIABLES TO THE CONSOLE USING CONSOLE.WRITELINE()
