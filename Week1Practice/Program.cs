@@ -11,108 +11,189 @@ namespace Week1Practice
         static void Main(string[] args)
         {
             // DECLARING VARIABLES
-            // 1. Declare a string variable called "myName" and set it equal to your name
             string myName = "Patrick Yee";
-            // 2. Declare a number varible called "myAge" and set it equal to your age
             int myAge = 31;
-            // 3. Declare a boolean value called "myBool" and set it equal to true or false;
-            bool myBool = true;
-            // 4. Declare a new list of strings called "productsList" and set it equal to "basketball", "baseball glove", "tennis shoes", "hockey puck"
+            bool myBool = false;
+            List<string> productsList = new List<string>();
 
-            // PRINTING VARIABLES TO THE CONSOLE USING CONSOLE.WRITELINE()
-            // 1. Print your name to the console using the format: "My name is <myName> and I'm a beast of a programmer"
-            // 2. Print out your age to the console using the format: "I am <myAge> years awesome."
-            // 3. Print out your boolean value using the format: "I set my boolean value equal to <myBool>"
-            // 4. Using a For loop, print out each value in productsList.
+            productsList.Add("basketball");
+            productsList.Add("baseball glove");
+            productsList.Add("tennis shoes");
+            productsList.Add("hockey puck");
+
+            // PRINT THE VARIABLES USING CONSOLE.WRITELINE()
+            Console.WriteLine("My name is {0} and I'm a beast of a programmer", myName);
+            Console.WriteLine("I am {0} years awesome", myAge);
+            Console.WriteLine("I set my boolean value equal to {0}", myBool);
+
+            for (int i = 0; i < productsList.Count; i++)
+            {
+                Console.WriteLine(productsList[i]);
+            }
 
             // FOR LOOP PRACTICE
-            // 1. Create a for loop that prints out the numbers 1 to 10.
-            // 2. Create a for loop that prints out the numbers 10 to 1.
-            // 3. Create a for loop that prints out the numbers 10 to 30, only printing the even numbers
-            // 4. Create a for loop that prints out the numbers 100 to 75, only printing every 5th number (100, 95, 90, 85, 80, 75)
+            // prints out 1 - 10
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i + 1);
+            }
+            // prints out 10 - 1
+            for (int i = 10; i > 0; i--)
+            {
+                Console.WriteLine(i);
+            }
+            // prints out only the even numbers from 10 to 30
+            for (int i = 10; i < 31; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            // prints out the numbers by 5 from 100 to 75
+            for (int i = 100; i >= 75; i -= 5)
+            {
+                Console.WriteLine(i);
+            }
 
             // WHILE LOOP PRACTICE
-            // 1. Create a while loop that prints out the numbers from 1 to 10.
-            // 2. Create a while loop that prints out the numbers from 10 to 1.
-            // 3. Create a while loop that prints out the numbers from 15 to 30, only printing the even numbers
-            // 4. Create a while loop that prints out the numbers from 100 to 75, only printing every 5th number (100, 95, 90, 85, 80, 75)
-            // 5. Create a while loop that prints out the numbers from 1 to 10 until it reaches one that is divisible by 4.
+            int n = 0;  // this will be my counter for all my while loops.
+            int endingNumber = 10;
+            // prints out 1 - 10
+            while (n < endingNumber)
+            {
+                Console.WriteLine(n + 1);
+                n++;
+            }
+            // prints out 10 - 1
+            n = 10;
+            endingNumber = 0;
+            while (n > endingNumber)
+            {
+                Console.WriteLine(n);
+                n--;
+            }
+            // prints out the even numbers from 15 - 30
+            n = 15;
+            endingNumber = 30;
+            while (n <= 30)
+            {
+                if (n % 2 == 0)
+                {
+                    Console.WriteLine(n);
+                }
+                n++;
+            }
+            // prints out every 5 numbers from 100 - 75
+            n = 100;
+            endingNumber = 75;
+            while (n >= endingNumber)
+            {
+                Console.WriteLine(n);
+                n = n - 5;
+            }
+            // prints out the first number that is divisible by 4 of 1 - 10
+            n = 1;
+            endingNumber = 10;
+            while (n % 4 != 0) { 
+                n++;
+            }
+            Console.WriteLine(n);
 
-            // PUTTING IT TOGETHER
-            // Use either FOR or WHILE loops to accomplish the following:
-            // 1. Print out the number of letters in your name using the format: "My name, <myName>, has <number of letters> in it."
-            // 2. Print out the number of items in your list using the format: "My product list has <number of items> in it."
-            // 3. Print out the number of letters of each item in productsList using the format: "<product> has <number of letters> in it."
+            // PUTTING IT ALL TOGETHER: use either a for or while loop
+            // prints out number of letters in myName variable
+            int numberOfLetters = 0;
+            for (n = 0; n < myName.Length; n++)
+            {
+                numberOfLetters++;
+            }
+            Console.WriteLine("My name, {0}, has {1} in it.", myName, numberOfLetters);
+            // prints out the number of items in the productsList variable
+            n = 0;
+            while (n < productsList.Count)
+            {
+                n++;
+            }
+            Console.WriteLine("My product list has {0} in it.", n);
+            // prints out the number of letters for each item in the productsList variable
+            for (n = 0; n < productsList.Count; n++)
+            {
+                numberOfLetters = 0;
+
+                string item = productsList[n];
+                while (numberOfLetters < item.Length)
+                {
+                    numberOfLetters++;
+                }
+                Console.WriteLine("{0} has {1} in it.", item, numberOfLetters);
+            }
 
             // DECLARING AND CALLING FUNCTIONS
-            // 1. Create a function called "Greeting" that takes one string parameter called "name".  This function will print "Hello <name>"
-            // 2. Call the Greeting function by passing in "Geronimo Jackson" as your parameter.
-            // 3. Call the Greeting function by passing in myName as your parameter.
-             
-            // 4. Create a function called "DoubleIt" that takes one integer parameter called "number".  This function will print "<number> doubled is <number * 2>"
-            // 5. Call your DoubleIt Function by passing in 1337 as your parameter.
-            // 6. Call your DoubleIt function by passing in myAge as your parameter.
+            Greeting("Geronimo Jackson");
+            Greeting(myName);
+            DoubleIt(1337);
+            DoubleIt(myAge);
+            Multiply(2, 8);
+            Multiply(3, myAge);
+            LoopThis(20, 30);
+            LoopThis(0, myAge);
 
-            // 7. Create a function called "Multiply" that takes two integer parameters called "num1" and "num2".  This function will print "<num1> times <num2> is <num1 * num2>"
-            // 8. Call your Multiply function by passing in 2 and 8 as your parameters.
-            // 9. Call your Multiply function by passing in 3 and myAge as your parameters.
-
-            // 10. Create a function called "LoopThis" that takes two integer parameters called "startNum" and "endNum".  
-            //      This function will print out: 
-            //          a. "I'm looping from <startNum> to <endNum>."  
-            //          b. The numbers from startNum to endNum, one per line.
-            // 11. Call your LoopThis function by passing in 20 and 30 as your parameters.
-            // 12. Call your LoopThis function by passing in 0 and myAge as your parameters.
-
-            // 13. Create a function called "SuperLoop" that takes three integer parameters called "startNum", "endNum", and "increment".  
-            //      You will need to track how many times the loop has been executed in a variable called "loopCount".
-            //      This function will print out: 
-            //          a. "I'm looping from <startNum> to <endNum>, incrementing <increment> each time"  
-            //          b. The numbers from startNum to endNum, one per line.
-            //          c. "That loop was craaaaaazy, we looped X times"
-            // 14. Call your SuperLoop function by passing in 0, 100, and 15 as your parameters.
-            // 15. Call your SuperLoop function by passing in 0, 200, and myAge as your parameters.
-
-            //DECLARING AND CALLING RETURN FUNCTIONS
-            // 1. Create a function called "NewGreeting" that takes one string parameter called "name".  This function will return a string in the format of "Hello, <name>"
-            // 2. Using your NewGreeting function as the parameter for Console.WriteLine(), call your NewGreeting function using the parameter "Neil deGrasse-Tyson"
-            //          EX: Console.WriteLine(FunctionCall("myParameter"));
-            // 3. Using your NewGreeting function as the parameter for Console.WriteLine(), call your NewGreeting function using the parameter myName.
-            
-            // 4. Create a function called "TripleIt" that takes one integer parameter called "number".  This function will return the number times 3.
-            // 5. Using your TripleIt function as part of the parameter for Console.WriteLine(), 
-            //      call your TripleIt function using the parameter of 10 to print out "10 tripled is <TripleIt Function Call>"
-            // 6. Using your TripleIt function as part of the parameter for Console.WriteLine(), 
-            //      call your TripleIt function using the parameter of myAge to print out "<myAge> tripled is <TripleIt Function Call>"
-
-            // 7. Create a function called "RealMultiply" that takes two integer parameters called "num1", and "num2".  This function will return the num1 * num2.
-            // 8. Using your RealMultiply function as part of the parameter for Console.WriteLine(), 
-            //      call your RealMultiply function using the parameter of 5 and 10 to print out the returned value from your function.
-            // 9. Using your RealMultiply function as part of the parameter for Console.WriteLine(), 
-            //      call your RealMultiply function using the parameter of 2 and myAge to print out the returned value from your function.
-
-            //FUNCTION CALL MADNESS!
-            // 1. Call your SuperLoop function using the following parameters:
-            //      startNum = Call RealMultiply with the parameters 1, 5
-            //      endNum = Call TripleIt with the parameter myAge
-            //      increment = Call TripleIt with the parameter of myAge minus 10
-
-            // 2. Call your SuperLoop function using the following parameters:
-            //      startNum = Call RealMultiply with the parameters 1, and TripleIt with the parameter of 3.
-            //      endNum = Call TripleIt with the parameter RealMultiply with the parameters: myAge, 7
-            //      increment = Call TripleIt with the parameter of myAge minus RealMultiply with the parameters 2, 4.
-
-
+            // debugger stopper
+            Console.WriteLine("Any key to continue...");
+            Console.ReadKey();
         }
 
-        //START -- FUNCTION DECLARATIONS 
-
-        //Example function declaration
-        static void MyFunction(string myParameter)
+        /// <summary>
+        /// Prints out a hello greeting.
+        /// </summary>
+        /// <param name="name">Input from the program</param>
+        static void Greeting(string name)
         {
-            //Code block
+            Console.WriteLine("Hello {0}", name);
         }
 
-        //END   -- FUNCTION DECLARATIONS
+        /// <summary>
+        /// It takes a number as input and prints out the double
+        /// </summary>
+        /// <param name="number">the input number</param>
+        static void DoubleIt(int number)
+        {
+            Console.WriteLine("{0} doubled is {1}", number, number * 2);
+        }
+
+        /// <summary>
+        /// Takes two numbers and multiply them
+        /// </summary>
+        /// <param name="num1">input of a integer</param>
+        /// <param name="num2">another input of a integer</param>
+        static void Multiply(int num1, int num2)
+        {
+            Console.WriteLine("{0} times {1} is {2}", num1, num2, num1 * num2);
+        }
+
+        /// <summary>
+        /// Takes two numbers and prints what it is doing and prints out the numbers from start to end.
+        /// </summary>
+        /// <param name="startNum">Starting input number</param>
+        /// <param name="endNum">Ending input number</param>
+        static void LoopThis(int startNum, int endNum)
+        {
+            Console.WriteLine("I'm looping from {0} to {1}", startNum, endNum);
+            while (startNum <= endNum)
+            {
+                Console.WriteLine(startNum);
+                startNum++;
+            }
+        }
+
+        static void SuperLoop(int startNum, int endNum, int increment)
+        {
+            int loopCount = 0;
+
+            while (startNum < endNum)
+            {
+
+            }
+        }
     }
 }
