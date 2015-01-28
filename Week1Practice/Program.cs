@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ *      Programmer: Patrick Yee
+ *      Date: 1/27/2015
+ *      Description: Bunch of prints out and functions and strange calls.
+ * 
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -137,12 +144,28 @@ namespace Week1Practice
             Multiply(3, myAge);
             LoopThis(20, 30);
             LoopThis(0, myAge);
+            SuperLoop(0, 100, 15);
+            SuperLoop(0, 200, myAge);
+
+            // DECLARING AND CALLING: with return value
+            Console.WriteLine(NewGreeting("Neil deGrasse-Tyson"));
+            Console.WriteLine(NewGreeting(myName));
+            Console.WriteLine("{0} tripled is {1}", 10, TripleIt(10));
+            Console.WriteLine("{0} tripled is {1}", myAge, TripleIt(myAge));
+            Console.WriteLine(RealMultiply(5, 10));
+            Console.WriteLine(RealMultiply(2, myAge));
+
+            // MADNESS FUNCTIONS!!!
+            SuperLoop(RealMultiply(1, 5), TripleIt(myAge), TripleIt(myAge - 10));
+            SuperLoop(RealMultiply(1, TripleIt(3)), TripleIt(RealMultiply(myAge, 7)), TripleIt(myAge - RealMultiply(2, 4)));
+
 
             // debugger stopper
             Console.WriteLine("Any key to continue...");
             Console.ReadKey();
         }
 
+        // DECLARING FUNCTIONS
         /// <summary>
         /// Prints out a hello greeting.
         /// </summary>
@@ -186,14 +209,55 @@ namespace Week1Practice
             }
         }
 
+        /// <summary>
+        /// Counts how many times that the loops around by a certain amount and prints out 2 statements.
+        /// </summary>
+        /// <param name="startNum">Starting point for the loop</param>
+        /// <param name="endNum">Ending point for the loop</param>
+        /// <param name="increment">Increment value for a counter</param>
         static void SuperLoop(int startNum, int endNum, int increment)
         {
             int loopCount = 0;
 
+            Console.WriteLine("I'm looping from {0} to {1}, incrementing by {2} each time", startNum, endNum, increment);
             while (startNum < endNum)
             {
-
+                startNum += increment;
+                loopCount++;
             }
+            Console.WriteLine("That loop was craaaaazy, we looped {0} times.", loopCount);
+        }
+
+        // DECLARING FUNCTION WITH RETURNS
+        /// <summary>
+        /// Returns a greeting
+        /// </summary>
+        /// <param name="name">Input a objects name</param>
+        /// <returns>a greeting string</returns>
+        static string NewGreeting(string name)
+        {
+            return "Hello " + name;
+        }
+
+        /// <summary>
+        /// Takes a number and times it by 3.
+        /// </summary>
+        /// <param name="number">input number</param>
+        /// <returns>a product of the number and 3.</returns>
+        static int TripleIt(int number)
+        {
+            return number * 3;
+        }
+
+        /// <summary>
+        /// Multiplies two numbers
+        /// </summary>
+        /// <param name="num1">input number 1</param>
+        /// <param name="num2">input number 2</param>
+        /// <returns>the product of 2 numbers</returns>
+        static int RealMultiply(int num1, int num2)
+        {
+            return num1 * num2;
         }
     }
 }
