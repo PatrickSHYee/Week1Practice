@@ -21,12 +21,7 @@ namespace Week1Practice
             string myName = "Patrick Yee";
             int myAge = 31;
             bool myBool = false;
-            List<string> productsList = new List<string>();
-
-            productsList.Add("basketball");
-            productsList.Add("baseball glove");
-            productsList.Add("tennis shoes");
-            productsList.Add("hockey puck");
+            List<string> productsList = new List<string>() { "basketball", "baseball glove", "tennis shoes", "hockey puck" };
 
             // PRINT THE VARIABLES USING CONSOLE.WRITELINE()
             Console.WriteLine("My name is {0} and I'm a beast of a programmer", myName);
@@ -73,7 +68,6 @@ namespace Week1Practice
                 n++;
             }
             // prints out 10 - 1
-            n = 10;
             endingNumber = 0;
             while (n > endingNumber)
             {
